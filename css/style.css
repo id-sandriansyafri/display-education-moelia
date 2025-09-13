@@ -1,0 +1,153 @@
+/* Minimal Custom CSS for Tailwind Enhancement */
+
+/* Video-specific styles that Tailwind can't handle directly */
+video::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+    color: white;
+}
+
+/* Custom scrollbar for playlist */
+.playlist-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.playlist-container::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+.playlist-container::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+.playlist-container::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading animation enhancement */
+@keyframes pulse-blue {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.pulse-blue {
+    animation: pulse-blue 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Video aspect ratio container */
+.video-aspect-container {
+    aspect-ratio: 16 / 9;
+}
+
+/* Playlist item hover animation */
+.playlist-item-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.playlist-item-hover:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+/* Active playlist item indicator */
+.active-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #2563eb, #1d4ed8);
+}
+
+/* Video overlay gradients */
+.video-info-gradient {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.4) 30%,
+        rgba(0, 0, 0, 0.9) 100%
+    );
+}
+
+/* Medical theme enhancements */
+.medical-accent {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.medical-text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Focus states for accessibility */
+.focus-ring:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+}
+
+/* Error message styling */
+.error-display {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border-left: 4px solid #ef4444;
+}
+
+/* Success message styling */
+.success-display {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-left: 4px solid #22c55e;
+}
+
+/* Custom shadow utilities */
+.shadow-medical {
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+}
+
+.shadow-video {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive video container */
+@media (max-width: 1024px) {
+    .video-aspect-container {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-aspect-container {
+        aspect-ratio: 16 / 9;
+        min-height: 200px;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .playlist-item-hover:hover {
+        border: 2px solid #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .playlist-item-hover {
+        transition: none;
+    }
+    
+    .playlist-item-hover:hover {
+        transform: none;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

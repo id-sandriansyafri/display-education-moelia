@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education RSIA MOELIA</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        'medical-blue': '#1e40af',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles for video-specific elements -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 font-sans">
+    <div class="min-h-screen flex flex-col max-w-full mx-auto bg-white shadow-xl">
+        <!-- Header -->
+        <header class="bg-white shadow-md border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 sm:h-20">
+                    <!-- Logo and Branding -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Logo -->
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center shadow-lg">
+                                <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-8 12H9.5v-2H11c.8 0 1.5-.7 1.5-1.5v-2c0-.8-.7-1.5-1.5-1.5H9V6.5h4.5V8H12v1h1.5v2H12v2zm2-6.5V10h1.5V8.5H13zm0 3V13h1.5v-1.5H13z"/>
+                                    <circle cx="12" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1"/>
+                                    <path d="M12 8c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Title -->
+                        <div>
+                            <h1 class="text-xl sm:text-2xl font-bold text-slate-900">RSIA MOELIA</h1>
+                            <p class="text-sm text-slate-600 hidden sm:block">Display Education </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Connection Status & Progress -->
+                    <div class="flex items-center space-x-4">
+                        
+                        <!-- Progress Indicator -->
+                        <div class="flex items-center bg-blue-50 px-4 py-2 rounded-full border border-blue-100">
+                            <div class="text-sm font-medium text-blue-700">
+                                <span class="current-video font-bold text-blue-600">1</span> 
+                                <span class="text-slate-500">dari</span> 
+                                <span class="total-videos">2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col lg:flex-row min-h-0">
+            <!-- Video Section (70%) -->
+            <section class="flex-1 lg:flex-[7] bg-black relative">
+                <div class="h-full flex flex-col">
+                    <!-- Video Player -->
+                    <div class="flex-1 relative bg-black">
+                        <video
+                            id="main-video"
+                            class="w-full h-full object-contain bg-black"
+                            controls
+                            preload="metadata"
+                            autoplay
+                        >
+                            Your browser does not support the video tag.
+                        </video>
+                        
+                        <!-- Loading Overlay -->
+                        <div id="loading-overlay" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+                            <div class="text-white text-center">
+                                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
+                                <p class="text-sm">Loading video...</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Video Info -->
+                    <div class="bg-slate-900 text-white p-4 sm:p-6">
+                        <h2 id="current-title" class="text-lg sm:text-xl font-semibold mb-2 text-white">
+                            Select a video to begin
+                        </h2>
+                        <p id="current-description" class="text-slate-300 text-sm leading-relaxed">
+                            Choose from the playlist to start learning.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Playlist Section (30%) -->
+            <aside class="flex-1 lg:flex-[3] bg-gradient-to-b from-blue-50 to-slate-50 border-l border-blue-100 flex flex-col">
+                <!-- Playlist Header -->
+                <div class="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-4 border-b border-blue-200">
+                    <h3 class="text-lg font-semibold text-white">Daftar Video</h3>
+                    <p class="text-sm text-blue-100">Pilih video untuk memulai pembelajaran</p>
+                </div>
+
+                <!-- Playlist Container -->
+                <div class="flex-1 overflow-y-auto p-4 space-y-3" id="playlist">
+                    <!-- Playlist items will be dynamically generated -->
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Core utilities -->
+    <script src="js/utils.js"></script>
+
+    <!-- Main application -->
+    <script src="js/script.js"></script>
+</body>
+</html>

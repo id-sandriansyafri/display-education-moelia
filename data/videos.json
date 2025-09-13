@@ -1,0 +1,15 @@
+[
+
+  {
+    "id": "patient-communication",
+    "title": "EDUKASI BPJS",
+    "description": "Develop essential communication skills for healthcare providers, including active listening techniques, cultural sensitivity, breaking bad news, and managing difficult conversations with patients and families.",
+    "src": "assets/videos/video-2.mp4",
+    "duration": 1980,
+    "thumbnail": "assets/thumbnails/patient-communication.jpg",
+    "category": "Patient Care",
+    "level": "Beginner",
+    "instructor": "Dr. Amanda Rodriguez, MD, MA",
+    "tags": ["communication", "cultural competency", "patient care", "soft skills"]
+  }
+]
